@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tugas 3 Pemrograman Web</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="header-text">Welcome to my To-Do List App</h1>
+            <button id="theme-toggle">Change theme</button>
+        </header>
+        <aside>
+            <div class="task-list">
+                <h3 class="list-title">Task List</h3>
+                <ul class="task-section">
+                    <li class="task-text">
+                        <input type="checkbox" class="task-check" checked> 
+                        <span class="task-label">Task 1</span>
+                    </li>
+                    <li class="task-text" >
+                        <input type="checkbox" class="task-check"> 
+                        <span class="task-label">Task 2</span>
+                    </li>
+                    <li class="task-text">
+                        <input type="checkbox" class="task-check"> 
+                        <span class="task-label">Task 3</span>
+                    </li>
+                    <li class="task-text" >
+                        <input type="checkbox" class="task-check"> 
+                        <span class="task-label">Task 4</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="task-details">
+                <h3 class="details-title">Task Details</h3>
+                <p class="detail-text">Select a task to view its details.</p>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Title</h5>
+                    <input type="text" name="task-title" placeholder="Enter task title"><br>
+                </div>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Description</h5>
+                    <textarea name="task-description" placeholder="Enter task description"></textarea><br>
+                </div>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Status</h5>
+                    <select name="task-status">
+                        <option value="not-started">Not Started</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select><br>
+                </div>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Deadline</h5>
+                    <input type="date" name="task-deadline">
+                </div>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Reminder</h5>
+                    <div class="field-wrap">
+                        <input type="datetime-local" name="task-notify">
+                        <small class="field-note">Leave empty for no reminder.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h5 class="details-subtitle">Image</h5>
+                    <div class="image-field">
+                        <img id="task-image-preview" class="image-preview" alt="Task image" hidden>
+                        <video id="camera-video" class="camera-video" autoplay playsinline muted hidden></video>
+                        <canvas id="camera-canvas" hidden></canvas>
+                        <div class="image-actions">
+                            <button type="button" id="open-camera" class="image-button">Open Camera</button>
+                            <button type="button" id="capture-photo" class="image-button" hidden>Capture</button>
+                            <button type="button" id="stop-camera" class="image-button" hidden>Cancel</button>
+                            <label class="image-button">Choose Photo
+                                <input type="file" id="image-file" accept="image/*" capture="environment" hidden>
+                            </label>
+                            <button type="button" id="remove-image" class="image-button image-remove" hidden>Remove Image</button>
+                        </div>
+                        <p id="camera-message" class="camera-message" role="status"></p>
+                    </div>
+                </div>
+                <button type="submit" class="details-button">Update Task</button>
+            </div>
+        </aside>
+        <form class="task-form" id="task-form">
+            <h2 class="details-title">Create New Task</h2>
+            <div class="form-group">
+                <label class="form-text">Task Title</label>
+                <input type="text" name="task-title" placeholder="Enter task title"><br>
+            </div>
+            <div class="form-group">
+                <label class="form-text">Task Description</label>
+                <textarea name="task-description" placeholder="Enter task description"></textarea><br>
+            </div>
+            <div class="form-group">
+                <label class="form-text">Task Deadline</label>
+                <input type="date" name="task-deadline">
+            </div>
+            <div class="form-group">
+                <label class="form-text">Reminder Time</label>
+                <div class="field-wrap">
+                    <input type="datetime-local" name="task-notify">
+                    <small class="field-note">Optional. You'll get a notification at this time.</small>
+                </div>
+            </div>
+            <details class="reminder-terms">
+                <summary>Reminder terms</summary>
+                <ul>
+                    <li>Your browser asks for notification permission the first time you save a task with a reminder time.</li>
+                    <li>The reminder time must be in the future when you set it.</li>
+                    <li>Each reminder shows once. Changing its time sets it again.</li>
+                    <li>Completed or deleted tasks don't send reminders.</li>
+                    <li>Reminders are checked every 30 seconds while the app is open in any tab (a background tab can be up to a minute late) and when you come back to it.</li>
+                    <li>If a reminder was missed while the app was closed, it shows when you reopen the app, unless it is more than 24 hours old.</li>
+                    <li>There is no push server, so the browser can't wake the app when it is fully closed.</li>
+                </ul>
+            </details>
+            <button type="submit" class="form-button">Add Task</button>
+        </form>
+        <footer class="site-footer">
+            <div class="footer-github">
+                <a href="https://www.github.com/mindofkaka" target="_blank" rel="noopener noreferrer" class="github-link">
+                    <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/960px-GitHub_Invertocat_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="GitHub Logo" class="github-logo">
+                    <span class="github-text">GitHub</span>
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; Kaka 2026
+            </div>
+        </footer>
+        <script src="script.js" defer></script>
+    </body>
+</html>
